@@ -1,5 +1,10 @@
 # Description of solution
-HEre I will provide some reasoning behing used technologies and patterns or ther decisions I have made.
+Here I will provide some reasoning behind used technologies 
+and patterns or other decisions I have made.
+
+## What is the app about?
+The goal of the app is to provide easy way to find recipes based on the ingredients,
+and recipe name.
 
 ## Technologies
 ### Material design
