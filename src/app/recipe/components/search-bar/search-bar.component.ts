@@ -12,11 +12,11 @@ import {SearchBarData} from './search-bar.interface';
 export class SearchBarComponent implements OnInit, OnDestroy {
 
   @Input()
-  set ingredients(value: SearchBarData) {
+  set filterData(value: SearchBarData) {
     this.form.patchValue(value, {emitEvent: false});
   }
 
-  @Output() ingredientsChanged = new EventEmitter<SearchBarData>();
+  @Output() filterDataChanged = new EventEmitter<SearchBarData>();
 
   form = new FormGroup({
     name: new FormControl(''),
@@ -32,7 +32,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
       takeUntil(this.destroyed$),
       debounceTime(500),
     ).subscribe(data => {
-      this.ingredientsChanged.emit(data);
+      this.filterDataChanged.emit(data);
     });
   }
 

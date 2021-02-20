@@ -1,6 +1,6 @@
 <app-search-bar
-  [ingredients]="ingredients$ | async"
-  (ingredientsChanged)="onIngredientsChange($event)"
+  [filterData]="ingredients$ | async"
+  (filterDataChanged)="onIngredientsChange($event)"
 ></app-search-bar>
 
 <div class="loader" *ngIf="loading$ | async">
