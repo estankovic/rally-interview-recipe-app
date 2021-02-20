@@ -14,6 +14,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatInputModule} from '@angular/material/input';
     EffectsModule.forFeature([RecipeEffects]),
     MatToolbarModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    InfiniteScrollModule,
   ]
 })
 export class RecipeModule { }

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {loadRecipes, loadRecipesFail, loadRecipesFromHome, loadRecipesSuccess, updateIngredients} from './recipe.actions';
+import {loadNextPage, loadRecipes, loadRecipesFail, loadRecipesFromHome, loadRecipesSuccess, updateIngredients} from './recipe.actions';
 import {catchError, map, switchMap, take, withLatestFrom} from 'rxjs/operators';
 import {RecipeService} from './recipe.service';
 import {of} from 'rxjs';
@@ -13,10 +13,19 @@ export class RecipeEffects {
   loadRecipesFromHome = createEffect(() => this.actions$.pipe(
     ofType(loadRecipesFromHome),
     withLatestFrom(
-      this.store.select($ingredients).pipe(take(1)),
-      this.store.select($recipesPage).pipe(take(1)),
+      this.store.select($ingredients),
+      this.store.select($recipesPage),
     ),
     map(([_, ingredients, page]) => loadRecipes({ingredients, page})),
+  ));
+
+  loadNextPage = createEffect(() => this.actions$.pipe(
+    ofType(loadNextPage),
+    withLatestFrom(
+      this.store.select($ingredients),
+      this.store.select($recipesPage),
+    ),
+    map(([_, ingredients, page]) => loadRecipes({ingredients, page: page + 1})),
   ));
 
   loadRecipes = createEffect(() => this.actions$.pipe(

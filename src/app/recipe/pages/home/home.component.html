@@ -3,7 +3,11 @@
   (ingredientsChanged)="onIngredientsChange($event)"
 ></app-search-bar>
 
-<div class="recipe-list">
+<div
+  class="recipe-list"
+  infiniteScroll
+  (scrolled)="onScroll($event)"
+>
   <app-recipe-card
     *ngFor="let recipe of recipes$ | async"
     [recipe]="recipe"

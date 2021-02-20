@@ -20,3 +20,5 @@ export const loadRecipesFail = createAction('[Recipe] - Load Recipes Fail', prop
 export const updateIngredients = createAction('[Recipe] - Update Ingredients Filter', props<{
   ingredients: string
 }>());
+
+export const loadNextPage = createAction('[Recipe] - Load Next Page');

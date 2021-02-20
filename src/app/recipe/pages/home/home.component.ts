@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
-import {loadRecipesFromHome, updateIngredients} from '../../data-layer/recipe.actions';
+import {loadNextPage, loadRecipesFromHome, updateIngredients} from '../../data-layer/recipe.actions';
 import {$ingredients, $recipeList} from '../../data-layer/recipe.selectors';
 
 @Component({
@@ -26,4 +26,7 @@ export class HomeComponent implements OnInit {
     this.store.dispatch(updateIngredients({ingredients}));
   }
 
+  onScroll(event: any): void {
+    this.store.dispatch(loadNextPage());
+  }
 }
