@@ -4,7 +4,7 @@ import {initState, recipeAdapter, recipeReducer} from './recipe.reducer';
 import {loadRecipes, loadRecipesFail, loadRecipesSuccess, updateFilter} from './recipe.actions';
 import {Recipe} from './recipe.interface';
 
-const recipesResponse: Recipe[] = [
+export const recipesResponse: Recipe[] = [
   {
     href: 'https://url.one',
     thumbnail: '',
