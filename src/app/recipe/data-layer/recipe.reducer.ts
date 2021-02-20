@@ -19,7 +19,7 @@ export interface RecipeState extends EntityState<Recipe> {
   lastPage: number;
 }
 
-const initState: RecipeState = recipeAdapter.getInitialState({
+export const initState: RecipeState = recipeAdapter.getInitialState({
   list: [],
   filter: {
     ingredients: '',
