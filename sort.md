@@ -4,7 +4,7 @@
 
  I will rather try to explain problems that might occur.
 
- Applies for all cases A and B:
+ **Applies for all cases A and B:**
  If we would want to estimate exactly (in ms) the time it takes
  for each algorithm to sort those arrays, the arrays would need to be "precalculated"
  before the test case runs, so that we do not influence out measurement by the time it takes to generate random number.
@@ -14,11 +14,11 @@
 
  For the absolute time, with running the algorithm, that would be tricky and would depend also on input data
 
- For the case A:
+ **For the case A:**
  The array size is rather small, but number of executions is huge.
  Because of small size, I would go with QuickSort.
 
- For the case B:
+ **For the case B:**
  Here I was tasked to write function that would sort an array of length 10 000 where each number could be random number following the rule:
  `(a^b) where a and b are random numbers between 100 and 10000`
 
