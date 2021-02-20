@@ -11,11 +11,12 @@ export class RecipeService {
   constructor(private readonly http: HttpClient) {
   }
 
-  getRecipes(ingredients = '', page = 1): Observable<Recipe[]> {
+  getRecipes(name = '', ingredients = '', page = 1): Observable<Recipe[]> {
 
     const params = new HttpParams({
       fromObject: {
         i: ingredients,
+        q: name,
         p: page.toString()
       }
     });

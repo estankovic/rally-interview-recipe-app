@@ -4,7 +4,10 @@ import {Recipe} from './recipe.interface';
 export const loadRecipesFromHomeInit = createAction('[Recipe Home] - Load Recipes');
 
 export const loadRecipes = createAction('[Recipe] - Load Recipes', props<{
-  ingredients: string;
+  filter: {
+    ingredients: string;
+    name: string;
+  };
   page: number;
 }>());
 
@@ -17,8 +20,9 @@ export const loadRecipesFail = createAction('[Recipe] - Load Recipes Fail', prop
   err: any
 }>());
 
-export const updateIngredients = createAction('[Recipe] - Update Ingredients Filter', props<{
-  ingredients: string
+export const updateFilter = createAction('[Recipe] - Update Filter', props<{
+  ingredients: string;
+  name: string;
 }>());
 
 export const loadNextPage = createAction('[Recipe] - Load Next Page');

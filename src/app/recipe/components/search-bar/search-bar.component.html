@@ -1,17 +1,18 @@
-<mat-form-field
+
+<ng-container
   [formGroup]="form"
-  floatLabel="always"
-  appearance="fill"
 >
-  <mat-label>Ingredients</mat-label>
-  <input type="search" matInput formControlName="ingredients">
-</mat-form-field>
-<mat-form-field
-  [formGroup]="form"
-  floatLabel="always"
-  appearance="fill"
->
-  <mat-label>Ingredients</mat-label>
-  <input type="search" matInput formControlName="ingredients">
-</mat-form-field>
+  <mat-form-field
+    appearance="fill"
+  >
+    <mat-label>Recipe Name</mat-label>
+    <input type="search" matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field
+    appearance="fill"
+  >
+    <mat-label>Ingredients</mat-label>
+    <input type="search" matInput formControlName="ingredients">
+  </mat-form-field>
+</ng-container>
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
-import {loadNextPage, loadRecipesFromHomeInit, updateIngredients} from '../../data-layer/recipe.actions';
-import {$ingredients, $recipeList, $recipesLoading} from '../../data-layer/recipe.selectors';
+import {loadNextPage, loadRecipesFromHomeInit, updateFilter} from '../../data-layer/recipe.actions';
+import {$recipeFilter, $recipeList, $recipesLoading} from '../../data-layer/recipe.selectors';
+import {SearchBarData} from '../../components/search-bar/search-bar.interface';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   recipes$ = this.store.select($recipeList);
   loading$ = this.store.select($recipesLoading);
-  ingredients$ = this.store.select($ingredients);
+  ingredients$ = this.store.select($recipeFilter);
 
   constructor(
     private readonly store: Store
@@ -23,8 +24,8 @@ export class HomeComponent implements OnInit {
     this.store.dispatch(loadRecipesFromHomeInit());
   }
 
-  onIngredientsChange(ingredients: string): void {
-    this.store.dispatch(updateIngredients({ingredients}));
+  onIngredientsChange(filter: SearchBarData): void {
+    this.store.dispatch(updateFilter(filter));
   }
 
   onScroll(event: any): void {

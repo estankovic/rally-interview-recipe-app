@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angula
 import {FormControl, FormGroup} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, takeUntil} from 'rxjs/operators';
+import {SearchBarData} from './search-bar.interface';
 
 @Component({
   selector: 'app-search-bar',
@@ -11,14 +12,15 @@ import {debounceTime, takeUntil} from 'rxjs/operators';
 export class SearchBarComponent implements OnInit, OnDestroy {
 
   @Input()
-  set ingredients(value: string) {
-    this.form.get('ingredients')?.patchValue(value, {emitEvent: false});
+  set ingredients(value: SearchBarData) {
+    this.form.patchValue(value, {emitEvent: false});
   }
 
-  @Output() ingredientsChanged = new EventEmitter<string>();
+  @Output() ingredientsChanged = new EventEmitter<SearchBarData>();
 
   form = new FormGroup({
-    ingredients: new FormControl('')
+    name: new FormControl(''),
+    ingredients: new FormControl(''),
   });
 
   private destroyed$ = new Subject();
@@ -26,11 +28,11 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
-    this.form.get('ingredients')?.valueChanges.pipe(
+    this.form.valueChanges.pipe(
       takeUntil(this.destroyed$),
       debounceTime(500),
-    ).subscribe(ingredients => {
-      this.ingredientsChanged.emit(ingredients);
+    ).subscribe(data => {
+      this.ingredientsChanged.emit(data);
     });
   }
 
