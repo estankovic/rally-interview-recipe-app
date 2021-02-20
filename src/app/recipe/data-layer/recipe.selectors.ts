@@ -13,6 +13,8 @@ export const $recipesLoading = createSelector(recipeFeatureSelector, state => st
 export const $recipesPage = createSelector(recipeFeatureSelector, state => state.lastPage);
 export const $ingredients = createSelector(recipeFeatureSelector, state => state.ingredients);
 
+export const $isFreshState = createSelector(recipeFeatureSelector, state => state.list.length === 0);
+
 export const $recipeList = createSelector(
   recipeEntities,
   recipeListIds,

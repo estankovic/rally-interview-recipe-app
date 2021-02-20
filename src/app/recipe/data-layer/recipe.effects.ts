@@ -1,22 +1,25 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {loadNextPage, loadRecipes, loadRecipesFail, loadRecipesFromHome, loadRecipesSuccess, updateIngredients} from './recipe.actions';
-import {catchError, map, switchMap, take, withLatestFrom} from 'rxjs/operators';
+import {loadNextPage, loadRecipes, loadRecipesFail, loadRecipesFromHomeInit, loadRecipesSuccess, updateIngredients} from './recipe.actions';
+import {catchError, filter, map, switchMap, take, withLatestFrom} from 'rxjs/operators';
 import {RecipeService} from './recipe.service';
 import {of} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {$ingredients, $recipesPage} from './recipe.selectors';
+import {$ingredients, $isFreshState, $recipesPage} from './recipe.selectors';
 
 @Injectable({providedIn: 'root'})
 export class RecipeEffects {
 
-  loadRecipesFromHome = createEffect(() => this.actions$.pipe(
-    ofType(loadRecipesFromHome),
+  loadRecipesFromHomeInit = createEffect(() => this.actions$.pipe(
+    ofType(loadRecipesFromHomeInit),
     withLatestFrom(
+      this.store.select($isFreshState),
       this.store.select($ingredients),
       this.store.select($recipesPage),
     ),
-    map(([_, ingredients, page]) => loadRecipes({ingredients, page})),
+    // allow only when state was not initialized from localstorage
+    filter(([_, isFresh]) => isFresh),
+    map(([_, __, ingredients, page]) => loadRecipes({ingredients, page})),
   ));
 
   loadNextPage = createEffect(() => this.actions$.pipe(

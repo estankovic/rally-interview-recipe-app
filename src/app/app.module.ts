@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import {HttpClientModule} from '@angular/common/http';
+import {localStorageSyncReducer} from './data-layer/local-storage-sync.meta-reducer';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({}, {
+      metaReducers: [localStorageSyncReducer]
+    }),
     StoreDevtoolsModule.instrument({ maxAge: 250, logOnly: environment.production }),
     EffectsModule.forRoot([])
   ],

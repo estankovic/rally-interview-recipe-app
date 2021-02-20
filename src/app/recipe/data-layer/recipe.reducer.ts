@@ -1,7 +1,7 @@
 import {createEntityAdapter, EntityState} from '@ngrx/entity';
 import {Recipe} from './recipe.interface';
 import {Action, createReducer, on} from '@ngrx/store';
-import {loadRecipes, loadRecipesFail, loadRecipesFromHome, loadRecipesSuccess, updateIngredients} from './recipe.actions';
+import {loadRecipes, loadRecipesFail, loadRecipesFromHomeInit, loadRecipesSuccess, updateIngredients} from './recipe.actions';
 
 export const recipeId = (entity: Recipe) => entity.href;
 
