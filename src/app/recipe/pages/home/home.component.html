@@ -3,5 +3,6 @@
 <div class="recipe-list">
   <app-recipe-card
     *ngFor="let recipe of recipes$ | async"
+    [recipe]="recipe"
   ></app-recipe-card>
 </div>

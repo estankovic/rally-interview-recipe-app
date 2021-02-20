@@ -1,6 +1,7 @@
 import {recipeAdapter} from './recipe.reducer';
 import {createSelector} from '@ngrx/store';
 import {recipeFeatureSelector} from './recipe.feature-selector';
+import {Recipe} from './recipe.interface';
 
 
 const {selectEntities} = recipeAdapter.getSelectors();
@@ -15,6 +16,6 @@ export const $ingredients = createSelector(recipeFeatureSelector, state => state
 export const $recipeList = createSelector(
   recipeEntities,
   recipeListIds,
-  (entities, ids) => {
-  return ids.map(id => entities[id]).filter(v => !!v);
+  (entities, ids): Recipe[] => {
+  return ids.map(id => entities[id]).filter(v => !!v) as Recipe[];
 });
