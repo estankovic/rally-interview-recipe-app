@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {loadNextPage, loadRecipesFromHomeInit, updateFilter} from '../../data-layer/recipe.actions';
 import {$recipeFilter, $recipeList, $recipesLoading} from '../../data-layer/recipe.selectors';
@@ -7,7 +7,8 @@ import {SearchBarData} from '../../components/search-bar/search-bar.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
 
