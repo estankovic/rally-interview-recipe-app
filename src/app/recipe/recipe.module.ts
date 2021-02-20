@@ -15,6 +15,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -29,6 +33,9 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressBarModule,
     InfiniteScrollModule,
   ]
 })

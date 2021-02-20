@@ -1,7 +1,12 @@
-<app-search-bar
-  [ingredients]="ingredients$ | async"
-  (ingredientsChanged)="onIngredientsChange($event)"
-></app-search-bar>
+<mat-toolbar color="primary">
+  <app-search-bar
+    [ingredients]="ingredients$ | async"
+    (ingredientsChanged)="onIngredientsChange($event)"
+  ></app-search-bar>
+</mat-toolbar>
+<div class="loader" *ngIf="loading$ | async">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 
 <div
   class="recipe-list"

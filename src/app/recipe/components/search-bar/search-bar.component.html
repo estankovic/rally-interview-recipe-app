@@ -1,4 +1,8 @@
-<mat-form-field [formGroup]="form">
+<mat-form-field
+  [formGroup]="form"
+  floatLabel="never"
+>
   <mat-label>Ingredients</mat-label>
-  <input type="text" matInput formControlName="ingredients">
+  <input type="search" matInput formControlName="ingredients">
 </mat-form-field>
+<button mat-icon-button><mat-icon>search</mat-icon></button>

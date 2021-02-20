@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {loadNextPage, loadRecipesFromHome, updateIngredients} from '../../data-layer/recipe.actions';
-import {$ingredients, $recipeList} from '../../data-layer/recipe.selectors';
+import {$ingredients, $recipeList, $recipesLoading} from '../../data-layer/recipe.selectors';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +11,7 @@ import {$ingredients, $recipeList} from '../../data-layer/recipe.selectors';
 export class HomeComponent implements OnInit {
 
   recipes$ = this.store.select($recipeList);
+  loading$ = this.store.select($recipesLoading);
   ingredients$ = this.store.select($ingredients);
 
   constructor(
