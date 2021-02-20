@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // todo: only if state is empty
     this.store.dispatch(loadRecipesFromHomeInit());
   }
 
