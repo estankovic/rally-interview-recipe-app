@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatCardModule} from '@angular/material/card';
     EffectsModule.forFeature([RecipeEffects]),
     MatToolbarModule,
     MatCardModule,
+    MatInputModule
   ]
 })
 export class RecipeModule { }

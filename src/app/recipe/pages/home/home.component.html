@@ -1,4 +1,7 @@
-<app-search-bar></app-search-bar>
+<app-search-bar
+  [ingredients]="ingredients$ | async"
+  (ingredientsChanged)="onIngredientsChange($event)"
+></app-search-bar>
 
 <div class="recipe-list">
   <app-recipe-card
