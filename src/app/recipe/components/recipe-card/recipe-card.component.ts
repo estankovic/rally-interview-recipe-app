@@ -8,7 +8,7 @@ import {Recipe} from '../../data-layer/recipe.interface';
 })
 export class RecipeCardComponent implements OnInit {
 
-  @Input() recipe!: Recipe;
+  @Input() recipe?: Recipe;
 
   constructor() { }
 
