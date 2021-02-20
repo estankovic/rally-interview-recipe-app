@@ -11,6 +11,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {RecipeEffects} from './data-layer/recipe.effects';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     RecipeRoutingModule,
     StoreModule.forFeature('recipe', recipeReducer),
-    EffectsModule.forFeature([RecipeEffects])
+    EffectsModule.forFeature([RecipeEffects]),
+    MatToolbarModule
   ]
 })
 export class RecipeModule { }

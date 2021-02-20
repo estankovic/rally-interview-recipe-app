@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from '@ngrx/store';
+import {loadRecipesFromHome} from '../../data-layer/recipe.actions';
+import {$recipeList} from '../../data-layer/recipe.selectors';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  recipes$ = this.store.select($recipeList);
+
+  constructor(
+    private readonly store: Store
+  ) { }
 
   ngOnInit(): void {
+    // todo: only if state is empty
+    this.store.dispatch(loadRecipesFromHome());
   }
 
 }

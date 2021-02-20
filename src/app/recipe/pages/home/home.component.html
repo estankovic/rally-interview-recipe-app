@@ -1,1 +1,7 @@
-<p>home works!</p>
+<app-search-bar></app-search-bar>
+
+<div class="recipe-list">
+  <app-recipe-card
+    *ngFor="let recipe of recipes$ | async"
+  ></app-recipe-card>
+</div>

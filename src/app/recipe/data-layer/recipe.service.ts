@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Recipe} from './recipe.interface';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {environment} from '../../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class RecipeService {
@@ -19,7 +20,7 @@ export class RecipeService {
       }
     });
 
-    return this.http.get<{results: Recipe[]}>('http://www.recipepuppy.com/api', {params}).pipe(
+    return this.http.get<{results: Recipe[]}>(environment.apiUrl, {params}).pipe(
       map(res => res.results)
     );
   }
