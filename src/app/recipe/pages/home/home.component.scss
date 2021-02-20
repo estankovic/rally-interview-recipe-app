@@ -1,7 +1,7 @@
 :host {
   position: relative;
 
-  mat-toolbar {
+  app-search-bar {
     position: fixed;
     top:0;
 
@@ -12,15 +12,15 @@
 
   .loader {
     position: fixed;
-    z-index: 98;
+    z-index: 101;
 
-    top: 56px;
+    top: calc(68px - 4px);
     width: 100vw;
 
   }
 
   .recipe-list {
-    padding-top: 56px;
+    padding-top: 68px;
 
     app-recipe-card {
       margin: .5rem;

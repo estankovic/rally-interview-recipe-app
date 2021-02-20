@@ -1,9 +1,17 @@
+@import '~@angular/material/_theming.scss';
+
 :host {
   display: flex;
   width: 100%;
-  align-items: center;
+
+  background-color: white;
+
+  box-shadow: 10px 0 10px black;
+
+  height: 68px;
 
   mat-form-field {
+    margin: .5rem;
     flex: 1;
   }
 }
