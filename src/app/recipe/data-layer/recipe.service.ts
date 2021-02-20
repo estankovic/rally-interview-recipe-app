@@ -4,7 +4,7 @@ import {Recipe} from './recipe.interface';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class RecipeService {
 
   constructor(private readonly http: HttpClient) {

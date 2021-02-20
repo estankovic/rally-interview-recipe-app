@@ -5,13 +5,23 @@ import { RecipeRoutingModule } from './recipe-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
+import {StoreModule} from '@ngrx/store';
+import {recipeReducer} from './data-layer/recipe.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {RecipeEffects} from './data-layer/recipe.effects';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [HomeComponent, SearchBarComponent, RecipeCardComponent],
   imports: [
     CommonModule,
-    RecipeRoutingModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    RecipeRoutingModule,
+    StoreModule.forFeature('recipe', recipeReducer),
+    EffectsModule.forFeature([RecipeEffects])
   ]
 })
 export class RecipeModule { }
